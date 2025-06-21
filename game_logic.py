@@ -17,7 +17,7 @@ def play_game():
         if not guess.isalpha() or len(guess) != 1:
             print(" Please enter a single **letter** (a-z).")
             continue
-            guessed_letters.append(guess)
+        guessed_letters.append(guess)
         if guess in secret_word:
            print("Correct guess!")
         else:
