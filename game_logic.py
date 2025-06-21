@@ -24,7 +24,7 @@ def play_game():
            print("Correct guess!")
         else:
           mistakes += 1
-        print("Wrong guess! The snowman is melting...")
+          print("Wrong guess! The snowman is melting...")
         # Check for win
         if all(letter in guessed_letters for letter in secret_word):
            display_game_state(mistakes, secret_word, guessed_letters)
