@@ -25,9 +25,6 @@ def play_game():
         else:
           mistakes += 1
         print("Wrong guess! The snowman is melting...")
-
-    #print("Secret word selected: " + secret_word)  # for testing, later remove this line
-
         # Check for win
         if all(letter in guessed_letters for letter in secret_word):
            display_game_state(mistakes, secret_word, guessed_letters)
@@ -39,6 +36,13 @@ def play_game():
            display_game_state(mistakes, secret_word, guessed_letters)
            print(f"The snowman melted! The word was '{secret_word}'.")
            break
+        # Ask if the user wants to play again
+    play_again = input("Do you want to play again? (y/n): ").lower()
+    if play_again == "y":
+        play_game()
+    else:
+        print("Thanks for playing Snowman Meltdown! Stay cool.")
+
 
 def display_game_state(mistakes, secret_word, guessed_letters):
     # Display the snowman stage for the current number of mistakes.
