@@ -42,13 +42,12 @@ def play_game():
 
 def display_game_state(mistakes, secret_word, guessed_letters):
     # Display the snowman stage for the current number of mistakes.
+    print("\n" + "=" * 40)
     print(ascii_art.STAGES[mistakes])
+    print("-" * 40)
     # Build a display version of the secret word.
-    display_word = ""
-    for letter in secret_word:
-        if letter in guessed_letters:
-            display_word += letter + " "
-        else:
-            display_word += "_ "
-    print("Word: ", display_word)
-    print("\n")
+    display_word = " ".join([letter if letter in guessed_letters else "_" for letter in secret_word])
+    print(f"Word:           {display_word}")
+    print(f"Mistakes:       {mistakes}/{len(ascii_art.STAGES) - 1}")
+    print(f"Guessed Letters: {', '.join(sorted(guessed_letters))}")
+    print("=" * 40 + "\n")
